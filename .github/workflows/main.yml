@@ -5,13 +5,13 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: A job to run swagger-hello-world build
     steps:
-    - name: Hello world action step
-      id: hello
-      uses: actions/hello-world-docker-action@v1
+    - name: SealTV/http-swagger-hello-world
+      id: sw-hw
+      uses: SealTV/http-swagger-hello-world
       with:
         who-to-greet: 'Mona the Octocat'
     # Use the output from the `hello` step
     - name: Get the output time
-      run: echo "The time was ${{ steps.hello.outputs.time }}"
+      run: echo "The time was ${{ steps.sw-hw.outputs.time }}"
