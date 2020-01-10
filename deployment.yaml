@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: websolla
+  name: swagger-hw
 spec:
   selector:
     matchLabels:
-      app: websolla
+      app: swagger-hw
       tier: backend
   replicas: 1
   template:
     metadata:
       labels:
-        app: websolla
+        app: swagger-hw
         tier: backend
     spec:
       containers:
-        - name: websolla
-          image: kregistry.projectx.vizor-games.com/websolla:latest
+        - name: swagger-hw
+          image: docker.pkg.github.com/sealtv/http-swagger-hello-world/hw:latest
           resources:
             requests:
               memory: "50Mi"
@@ -26,79 +26,16 @@ spec:
           ports:
             - name: web
               containerPort: 8080
-          env:
-            - name: XSOLLA_SECRET_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: xsolla
-                  key: secret
-            - name: MERCHANT_ID
-              valueFrom:
-                secretKeyRef:
-                  name: xsolla
-                  key: merchant_id
-            - name: MERCHANT_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: xsolla
-                  key: merchant_api_key
-            - name: API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: xsolla
-                  key: api_key
-            - name: PORT
-              value: "8080"
-            - name: DBHOST
-              valueFrom:
-                configMapKeyRef:
-                  name: dev-services
-                  key: db.host
-            - name: DBPORT
-              valueFrom:
-                configMapKeyRef:
-                  name: dev-services
-                  key: db.port
-            - name: DBNAME
-              valueFrom:
-                configMapKeyRef:
-                  name: dev-services
-                  key: db.name
-            - name: DBUSER
-              valueFrom:
-                secretKeyRef:
-                  name: db-bohuser-pass
-                  key: dbuser
-            - name: DBPASS
-              valueFrom:
-                secretKeyRef:
-                  name: db-bohuser-pass
-                  key: dbpass
-            - name: DBSSL
-              value: "true"
-            - name: IS_SANDBOX
-              value: "true"
-            - name: RDHOST
-              value: "redis-2.database"
-            - name: RDPORT
-              value: "6379"
-            - name: RDDB
-              valueFrom:
-                configMapKeyRef:
-                  name: dev-services
-                  key: db.host
-      imagePullSecrets:
-        - name: kregcred
       nodeSelector:
         node-role.kubernetes.io/services: services
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: websolla
+  name: swagger-hw
 spec:
   selector:
-    app: websolla
+    app: swagger-hw
     tier: backend
   ports:
     - protocol: TCP

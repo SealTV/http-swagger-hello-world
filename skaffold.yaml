@@ -4,16 +4,20 @@ metadata:
   name: websolla
 build:
   artifacts:
-  - image: docker.pkg.github.com/SealTV/http-swagger-hello-world/hw
-    custom:
-      buildCommand: ./build.sh
-      dependencies:
-        paths:
-        - pkg/**
-        - src/*.go
-        ignore:
-        - vendor/**
-deploy:
-  kubectl:
-    manifests:
-    - websolla_deployment.yaml
+  - image: docker.pkg.github.com/sealtv/http-swagger-hello-world/hw
+    context: .
+    docker:
+      dockerfile: ./Dockerfile
+
+    # custom:
+    #   buildCommand: ./build.sh
+    #   dependencies:
+    #     paths:
+    #     - pkg/**
+    #     - src/*.go
+    #     ignore:
+    #     - vendor/**
+# deploy:
+#   kubectl:
+#     manifests:
+#     - websolla_deployment.yaml
