@@ -1,0 +1,19 @@
+apiVersion: skaffold/v1beta17
+kind: Config
+metadata:
+  name: websolla
+build:
+  artifacts:
+  - image: docker.pkg.github.com/SealTV/http-swagger-hello-world/hw
+    custom:
+      buildCommand: ./build.sh
+      dependencies:
+        paths:
+        - pkg/**
+        - src/*.go
+        ignore:
+        - vendor/**
+deploy:
+  kubectl:
+    manifests:
+    - websolla_deployment.yaml
