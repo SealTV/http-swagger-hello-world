@@ -7,9 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to run swagger-hello-world build
     steps:
-    - name: SealTV/http-swagger-hello-world
-      id: sw-hw
-      uses: SealTV/http-swagger-hello-world
+        # To use this repository's private action, you must check out the repository
+    - name: Checkout
+      uses: SealTV/http-swagger-hello-world@v1
+    - uses: ./ # Uses an action in the root directory
+    - name: Hello world action step
+      id: hello
+      uses: SealTV/http-swagger-hello-worldn@v1
       with:
         who-to-greet: 'Mona the Octocat'
     # Use the output from the `hello` step
