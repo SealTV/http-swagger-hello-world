@@ -9,13 +9,13 @@ jobs:
     steps:
         # To use this repository's private action, you must check out the repository
     - name: Checkout
-      uses: SealTV/http-swagger-hello-world@v1
+      uses: SealTV/http-swagger-hello-world@master
     - uses: ./ # Uses an action in the root directory
     - name: Hello world action step
       id: hello
-      uses: SealTV/http-swagger-hello-worldn@v1
+      uses: SealTV/http-swagger-hello-world@master
       with:
-        who-to-greet: 'Mona the Octocat'
+        who-to-greet: 'Mona the SealTV'
     # Use the output from the `hello` step
     - name: Get the output time
       run: echo "The time was ${{ steps.sw-hw.outputs.time }}"
