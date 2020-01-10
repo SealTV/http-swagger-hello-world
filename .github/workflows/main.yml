@@ -1,21 +1,14 @@
-name: Go Swagger Hello World
+name: Docker Image CI
 
 on: [push]
 
 jobs:
-  hello_world_job:
+
+  build:
+
     runs-on: ubuntu-latest
-    name: A job to run swagger-hello-world build
+
     steps:
-        # To use this repository's private action, you must check out the repository
-    - name: Checkout
-      uses: SealTV/http-swagger-hello-world@master
-    - uses: ./ # Uses an action in the root directory
-    - name: Hello world action step
-      id: hello
-      uses: SealTV/http-swagger-hello-world@master
-      with:
-        who-to-greet: 'Mona the SealTV'
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: echo "The time was ${{ steps.sw-hw.outputs.time }}"
+    - uses: SealTV/http-swagger-hello-world@master
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
