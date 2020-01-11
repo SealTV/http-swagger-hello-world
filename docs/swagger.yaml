@@ -1,5 +1,5 @@
-basePath: /v2
-host: petstore.swagger.io
+basePath: /api/v1
+host: localhost:1323
 info:
   contact:
     email: support@swagger.io
@@ -12,5 +12,23 @@ info:
   termsOfService: http://swagger.io/terms/
   title: Swagger Example API
   version: "1.0"
-paths: {}
+paths:
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: get string by ID
+      operationId: get-string-by-int
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          headers:
+            string:
+              description: OK
+              type: string
+          schema:
+            type: string
+      summary: Show a 'pong' message
 swagger: "2.0"
