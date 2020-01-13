@@ -56,7 +56,7 @@ func main() {
 	r.Route("/swagger", func(r chi.Router) {
 		r.Use(hostChanger)
 		r.Get("/*", httpSwagger.Handler(
-			httpSwagger.URL("http://localhost:1323/swagger/doc.json"), //The url pointing to API definition
+			httpSwagger.URL("./swagger/doc.json"), //The url pointing to API definition
 		))
 	})
 
@@ -78,6 +78,7 @@ func ping(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "pong")
 }
 
+// this middleware change Host value for swagger docs info object
 func hostChanger(next http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		docs.SwaggerInfo.Host = r.URL.Hostname()

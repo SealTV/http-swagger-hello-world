@@ -9,6 +9,8 @@ github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 h1:d+Bc7a5rLufV
 github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578/go.mod h1:uGdkoq3SwY9Y+13GIhn11/XLaGBb4BfwItxLd5jeuXE=
 github.com/SealTV/http-swagger v0.0.0-20200113205801-54268ba17f87 h1:x2p6YfCH5WnFpbLhld/2htv1AKBh+3tHnwqrKoxHPuk=
 github.com/SealTV/http-swagger v0.0.0-20200113205801-54268ba17f87/go.mod h1:Joq4CTAT1uvy3QuOGFrN7MgZLLkF5Xglo0DJWZtR2Tk=
+github.com/SealTV/http-swagger v0.0.0-20200113211010-557baa36858c h1:VPJZ2AUj7xS+hrx2sBJC9vdS7WGVWCdp1JG4/lKSRQ8=
+github.com/SealTV/http-swagger v0.0.0-20200113211010-557baa36858c/go.mod h1:UP0a6k+rbvN0LjqK2nddUjQV+qIpKVnFeWz9+fEuykQ=
 github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751 h1:JYp7IbQjafoB+tBA3gMyHYHrpOtNuDiK/uB5uXxq5wM=
 github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751/go.mod h1:LOuyumcjzFXgccqObfd/Ljyb9UuFJ6TxHnclSeseNhc=
 github.com/cpuguy83/go-md2man/v2 v2.0.0-20190314233015-f79a8a8ca69d/go.mod h1:maD7wRr/U5Z6m/iR4s+kqSMx2CaBsrgA7czyZG/E6dU=
@@ -146,6 +148,8 @@ golang.org/x/tools v0.0.0-20200110142700-428f1ab0ca03 h1:iPq9R0Zx+m39Vtm+v/7imzP
 golang.org/x/tools v0.0.0-20200110142700-428f1ab0ca03/go.mod h1:TB2adYChydJhpapKDTa4BR/hXlZSLoq2Wpct/0txZ28=
 golang.org/x/tools v0.0.0-20200113202226-4da8041706e9 h1:I7gpGTa2XflDylc2MwmkncdiQ//IhYmFTw3seY2W5vU=
 golang.org/x/tools v0.0.0-20200113202226-4da8041706e9/go.mod h1:TB2adYChydJhpapKDTa4BR/hXlZSLoq2Wpct/0txZ28=
+golang.org/x/tools v0.0.0-20200113211014-78c17663447c h1:SJznaNEp+Pt8d0QGATFiabpkU/EukMiHRrE4YtaEbg0=
+golang.org/x/tools v0.0.0-20200113211014-78c17663447c/go.mod h1:TB2adYChydJhpapKDTa4BR/hXlZSLoq2Wpct/0txZ28=
 golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898/go.mod h1:I/5z698sn9Ka8TeJc9MKroUUfqBBauWjQqLJ2OPfmY0=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 h1:qIbj1fsPNlZgppZ+VLlY7N33q108Sa+fhmuc+sWQYwY=
