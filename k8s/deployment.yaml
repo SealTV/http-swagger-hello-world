@@ -6,39 +6,21 @@ spec:
   selector:
     matchLabels:
       app: swagger-hw
-      tier: backend
   replicas: 1
   template:
     metadata:
       labels:
         app: swagger-hw
-        tier: backend
     spec:
       containers:
         - name: swagger-hw
           image: docker.pkg.github.com/sealtv/http-swagger-hello-world/hw:latest
           resources:
-            requests:
+            requests: 
               memory: "50Mi"
             limits:
               memory: "100Mi"
               cpu: "50m"
           ports:
             - name: web
-              containerPort: 8080
-      nodeSelector:
-        node-role.kubernetes.io/services: services
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: swagger-hw
-spec:
-  selector:
-    app: swagger-hw
-    tier: backend
-  ports:
-    - protocol: TCP
-      port: 8022
-      name: web
-      targetPort: web
+              containerPort: 1323

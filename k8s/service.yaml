@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: swagger-hw
+spec:
+  selector:
+    app: swagger-hw
+  ports:
+    - protocol: TCP
+      port: 8022
+      name: web
+      targetPort: web
+    

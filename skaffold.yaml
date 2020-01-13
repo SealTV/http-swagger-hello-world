@@ -1,14 +1,14 @@
-apiVersion: skaffold/v1beta17
+apiVersion: skaffold/v2alpha1
 kind: Config
 metadata:
   name: http-swagger-hello-world
 build:
   artifacts:
   - image: docker.pkg.github.com/sealtv/http-swagger-hello-world/hw
-    context: .
-    docker:
-      dockerfile: ./Dockerfile
-# deploy:
-#   kubectl:
-#     manifests:
-#     - deployment.yaml
+  # local:
+  #   useDockerCLI: false
+  #   useBuildkit: false
+deploy:
+  kubectl:
+    manifests:
+    - k8s/deployment.yaml

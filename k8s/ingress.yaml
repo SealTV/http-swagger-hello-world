@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: swagger-ingress
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /swagger
+        backend:
+          serviceName: swagger-hw
+          servicePort: 8022
+          # serviceName: bar-service
+          # servicePort: 5678

@@ -46,4 +46,5 @@ COPY --chown=65534:0 --from=builder /data /data
 USER 65534
 WORKDIR /data
 
+EXPOSE 1323
 ENTRYPOINT ["/http-swagger-hw"]
