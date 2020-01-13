@@ -12,5 +12,7 @@ spec:
         backend:
           serviceName: swagger-hw
           servicePort: 8022
-          # serviceName: bar-service
-          # servicePort: 5678
+      - path: /api/v1
+        backend:
+          serviceName: swagger-hw
+          servicePort: 8022

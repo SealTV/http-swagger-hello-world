@@ -44,8 +44,6 @@ func main() {
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)
 
-	docs.SwaggerInfo.Host = *host
-
 	// Set a timeout value on the request context (ctx), that will signal
 	// through ctx.Done() that the request has timed out and further
 	// processing should be stopped.
@@ -55,9 +53,12 @@ func main() {
 		r.Get("/ping", ping)
 	})
 
-	r.Get("/swagger/*", httpSwagger.Handler(
-		httpSwagger.URL("http://localhost:1323/swagger/doc.json"), //The url pointing to API definition
-	))
+	r.Route("/swagger", func(r chi.Router) {
+		r.Use(hostChanger)
+		r.Get("/*", httpSwagger.Handler(
+			httpSwagger.URL("http://localhost:1323/swagger/doc.json"), //The url pointing to API definition
+		))
+	})
 
 	log.Fatal(http.ListenAndServe(*host, r))
 }
@@ -75,4 +76,13 @@ func ping(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 
 	fmt.Fprint(w, "pong")
+}
+
+func hostChanger(next http.Handler) http.Handler {
+	fn := func(w http.ResponseWriter, r *http.Request) {
+		docs.SwaggerInfo.Host = r.URL.Hostname()
+		next.ServeHTTP(w, r)
+	}
+
+	return http.HandlerFunc(fn)
 }
